@@ -51,9 +51,10 @@ def get_task_by_id(task_id):
 
 def add_task(request):
     # print(request['post'])
-    t_id=request.POST['id']
+    t_id=int(request.POST['id'])
     t_title=request.POST['title']
     t_priority=request.POST['prio']
     task = Task(t_id,t_title,t_priority)
     todo.append(task.__dict__)
+    pprint (todo)
     return redirect(reverse('todo:home'))
