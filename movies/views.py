@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse, redirect
+from django.shortcuts import render, redirect
 
 from .forms import MovieForm
 
@@ -40,5 +40,7 @@ def delete_movie(request, **kwargs):
     return redirect('movies:list')
 
 
-def get_movie_details():
-    pass
+def get_movie_details(request, **kwargs):
+    id = kwargs['id']
+    record = Movie.objects.filter(id=id)[0]
+    return render(request, 'movies/details.html', context={'movie': record})

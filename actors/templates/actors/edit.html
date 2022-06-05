@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block body_content %}
 <div class="container mt-5 border">
-    <form action="{% url 'movies:edit' movie.id  %}" method="post" class="form-group">
+    <form action="{% url 'actors:edit' actor.id  %}" method="post" class="form-group">
         {% csrf_token%}
 
         {{ form | crispy }}
