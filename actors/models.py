@@ -16,3 +16,9 @@ class Actor(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+class Director(models.Model):
+    name = models.fields.CharField(verbose_name='Name', max_length=25, unique=True)
+    gender = models.CharField(verbose_name='Gender', choices=GENDER_LIST, max_length=6, default='male')
+    age = models.IntegerField(default=0)
+    # movies = models.ManyToManyField('movies.movie')

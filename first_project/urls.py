@@ -19,7 +19,14 @@ from django.urls import path, include
 app_name = 'todo'
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('account/', include('account.urls')),
+    path('account/', include('django.contrib.auth.urls')),
     path('todo/', include('todo.urls')),
-     path('actors/', include('actors.urls')),
+    path('actors/', include('actors.urls')),
     path('movies/', include('movies.urls')),
+    path('account/', include('account.urls')),
+    path('account/', include('django.contrib.auth.urls')),
+    path('api/v1/account/', include('account.api.v1.urls')),
+    path('api/v1/movies/', include('movies.api.v1.urls')),
+    path('api/v1/actors/', include('actors.api.v1.urls'))
 ]

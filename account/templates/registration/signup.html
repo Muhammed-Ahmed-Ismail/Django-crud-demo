@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block body_content %}
+    <div class="container mt-5 d-flex justify-content-center align-items-center">
+{#        <div class="mt-5 d-flex justify-content-center align-items-center">#}
+            <div class=" row col-12">
+                <form action="{% url 'account:signup' %}" method="post">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <button type="submit" class="btn badge-primary"> login</button>
+{#                    <a href="{% url 'login' %}" class="btn badge-primary"> SIGN UP </a>#}
+                </form>
+{#            </div>#}
+        </div>
+    </div>
+
+{% endblock body_content %}

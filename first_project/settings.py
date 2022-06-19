@@ -36,11 +36,13 @@ DEFAULT_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
-THIRD_PARTY_APPS = ['crispy_forms']
+THIRD_PARTY_APPS = ['crispy_forms','rest_framework.authtoken']
 
 CUSTOM_APPS = ['todo', 'actors', 'movies']
 
-INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS+THIRD_PARTY_APPS
+HELPER_APPS = ['account']
+
+INSTALLED_APPS = DEFAULT_APPS + CUSTOM_APPS+THIRD_PARTY_APPS+HELPER_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -128,3 +130,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'accounts.User'
+
+LOGIN_REDIRECT_URL = '/movies/list'
+LOGOUT_REDIRECT_URL = '/movies/list'
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '9342befd020d10'
+EMAIL_HOST_PASSWORD = '4604994a821719'
+EMAIL_PORT = '465'
+
